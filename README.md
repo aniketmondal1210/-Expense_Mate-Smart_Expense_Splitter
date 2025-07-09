@@ -1,4 +1,4 @@
-# Expense Splitter
+# Expense Mate: Smart Expense Splitter
 
 A simple Java GUI application to manage and split expenses among individuals. The application allows users to add expenses and automatically calculates how much each person owes to balance the expenses fairly.
 
