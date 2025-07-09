@@ -1,0 +1,27 @@
+# Ignore all class files (compiled Java files)
+*.class
+
+# Ignore backup files
+*~
+
+# Ignore IDE-specific files
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# MacOS specific
+.DS_Store
+
+# Linux trash
+.Trash-*
+
+# Logs
+*.log
