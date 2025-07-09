@@ -1,27 +1,29 @@
-# Ignore all class files (compiled Java files)
-*.class
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-# Ignore backup files
-*~
-
-# Ignore IDE-specific files
-# IntelliJ
-.idea/
-*.iml
-
-# Eclipse
-.project
+### Eclipse ###
+.apt_generated
 .classpath
-.settings/
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
-# VS Code
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
 .vscode/
 
-# MacOS specific
+### Mac OS ###
 .DS_Store
-
-# Linux trash
-.Trash-*
-
-# Logs
-*.log
