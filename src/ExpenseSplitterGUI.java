@@ -64,7 +64,7 @@ public class ExpenseSplitterGUI {
 
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
-        addButton.addActionListener(_ -> {
+        addButton.addActionListener(e -> {
             try {
                 int amount = Integer.parseInt(amountField.getText().trim());
                 String category = categoryField.getText().trim();
@@ -81,9 +81,9 @@ public class ExpenseSplitterGUI {
 
                 int monthlyTotal = manager.calculateMonthlyTotal(LocalDate.now());
                 if (monthlyTotal > manager.monthlyLimit * 0.8 && monthlyTotal <= manager.monthlyLimit) {
-                    JOptionPane.showMessageDialog(frame, "⚠️ You have crossed 80% of your monthly limit.");
+                    JOptionPane.showMessageDialog(frame, " You have crossed 80% of your monthly limit.");
                 } else if (monthlyTotal > manager.monthlyLimit) {
-                    JOptionPane.showMessageDialog(frame, "⚠️ You have exceeded your monthly limit!");
+                    JOptionPane.showMessageDialog(frame, " You have exceeded your monthly limit!");
                 }
 
                 amountField.setText("");
@@ -95,7 +95,7 @@ public class ExpenseSplitterGUI {
             }
         });
 
-        searchButton.addActionListener(_ -> {
+        searchButton.addActionListener(e -> {
             String keyword = JOptionPane.showInputDialog(frame, "Enter keyword to search:");
             List<Expense> results = manager.searchExpenses(keyword);
             model.setRowCount(0);
@@ -104,17 +104,17 @@ public class ExpenseSplitterGUI {
             }
         });
 
-        sortHighButton.addActionListener(_ -> {
+        sortHighButton.addActionListener(e -> {
             manager.sortExpensesHighToLow();
             refreshTable();
         });
 
-        sortLowButton.addActionListener(_ -> {
+        sortLowButton.addActionListener(e -> {
             manager.sortExpensesLowToHigh();
             refreshTable();
         });
 
-        exportButton.addActionListener(_ -> {
+        exportButton.addActionListener(e -> {
             try {
                 manager.exportToCSV("expenses.csv");
                 JOptionPane.showMessageDialog(frame, "Data exported to expenses.csv");
@@ -123,7 +123,7 @@ public class ExpenseSplitterGUI {
             }
         });
 
-        saveButton.addActionListener(_ -> {
+        saveButton.addActionListener(e -> {
             try {
                 manager.saveData("expenses.dat");
                 JOptionPane.showMessageDialog(frame, "Data saved successfully.");
@@ -132,7 +132,7 @@ public class ExpenseSplitterGUI {
             }
         });
 
-        loadButton.addActionListener(_ -> {
+        loadButton.addActionListener(e -> {
             try {
                 manager = ExpenseManager.loadData("expenses.dat");
                 refreshTable();
@@ -142,7 +142,7 @@ public class ExpenseSplitterGUI {
             }
         });
 
-        budgetButton.addActionListener(_ -> {
+        budgetButton.addActionListener(e -> {
             String newLimit = JOptionPane.showInputDialog(frame, "Enter new monthly limit (current: " + manager.monthlyLimit + "):");
             try {
                 manager.monthlyLimit = Integer.parseInt(newLimit);
